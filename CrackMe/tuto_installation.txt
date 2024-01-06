@@ -1,0 +1,27 @@
+Installation de Hydra:
+
+    Linux:
+        Hydra est généralement préinstallé sur de nombreuses distributions Linux. Si ce n'est pas le cas, vous pouvez l'installer à l'aide de la commande suivante :
+
+     
+    sudo apt-get install hydra
+
+Mac OS X:
+
+    Utilisez Homebrew pour installer Hydra sur macOS :
+
+  
+        brew install hydra
+
+    Windows:
+        Hydra peut également être utilisé sur Windows avec l'aide de Cygwin, un émulateur de terminal.
+            Téléchargez et installez Cygwin depuis le site officiel.
+            Assurez-vous de sélectionner l'option "Hydra" pendant le processus d'installation de Cygwin.
+
+Exemple d'utilisation:
+
+    Une fois installé, vous pouvez utiliser Hydra pour effectuer des attaques de force brute sur des services tels que SSH, FTP, etc. Par exemple, pour une attaque SSH :
+
+    hydra -l <utilisateur> -P <liste_de_mots_de_passe> ssh://<adresse_ip>
+
+Remplacez <utilisateur>, <liste_de_mots_de_passe>, et <adresse_ip> par les informations appropriées.
