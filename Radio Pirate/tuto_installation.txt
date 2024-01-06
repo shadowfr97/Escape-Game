@@ -1,0 +1,47 @@
+# Tutoriel : Émettez du contenu neuf vers votre vieux autoradio à partir de votre Raspberry Pi
+
+*Par Arnaud Fevrier, 25 novembre 2022*
+
+Les autoradios du commerce sont souvent limités par leur interface préétablie lors de la conception. Certains modèles plus anciens ne disposent pas d'une entrée jack, USB ou Bluetooth, ce qui peut être frustrant. Plutôt que de dépenser de l'argent pour un nouvel équipement, une alternative est d'améliorer l'ancien en utilisant un Raspberry Pi pour ajouter des fonctionnalités souhaitées.
+
+## Introduction
+
+J'avais un autoradio ancien dépourvu d'entrées modernes telles que la prise jack, l'USB ou le Bluetooth. Insatisfait de mon dernier achat, je me suis tourné vers l'idée d'utiliser un Raspberry Pi pour enrichir les fonctionnalités de mon ancien autoradio.
+
+## 1. Installation du Raspberry
+
+Commencez par installer le système d'exploitation Raspbian sur votre Raspberry. Téléchargez l'image Raspbian depuis le site officiel, décompressez-la et copiez-la sur une carte SD. Ensuite, configurez les paramètres nécessaires via `raspi-config`, notamment les localisations, le fuseau horaire et activez SSH.
+
+```bash
+sudo apt install git
+sudo apt install libsndfile1-dev
+```
+
+Votre Raspberry Pi est maintenant prêt. Passons à la transformation en émetteur FM.
+
+## 2. Émission FM
+
+L'émission FM est réglementée, assurez-vous de respecter les lois locales. Utilisez le programme PiFmRds, qui peut être cloné depuis GitHub et compilé.
+
+```bash
+git clone https://github.com/ChristopheJacquet/PiFmRds.git
+cd PiFmRds/src
+make clean
+make
+```
+
+Pour tester l'émission, utilisez la commande `pi_fm_rds`. Vous pouvez personnaliser la fréquence, le fichier audio, le texte RDS, etc.
+
+```bash
+pi_fm_rds -freq 92.3M -ps PiRateFM -audio stereo_44100.wav
+```
+
+## 3. Réception FM
+
+Utilisez un récepteur adapté à la radio logicielle, comme une clé TNT RTL2832U. Des applications telles que Gqrx SDR avec le support RDS peuvent être utilisées pour visualiser le spectre et les informations RDS.
+
+## Conclusion
+
+Vous avez maintenant appris à émettre du contenu audio depuis votre Raspberry Pi vers n'importe quel autoradio. Ce tutoriel offre une introduction ludique à la radio logicielle, et vous pouvez explorer davantage pour créer des applications personnalisées.
+
+*Note : Respectez toujours les lois et réglementations locales en matière de transmission radio pour éviter toute violation.*
