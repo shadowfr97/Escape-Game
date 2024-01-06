@@ -1,0 +1,22 @@
+Installer steghide : Assurez-vous que steghide est installé sur votre système. Vous pouvez l'installer en utilisant la commande appropriée pour votre système d'exploitation (par exemple, sudo apt-get install steghide sur Linux ou en téléchargeant l'installateur sur le site officiel pour Windows).
+
+Préparer l'image : Choisissez une image qui servira de support pour votre message. Assurez-vous que l'image est au format pris en charge par steghide, comme JPEG ou BMP.
+
+Créer un fichier texte pour le message : Écrivez le message que vous souhaitez cacher dans un fichier texte. Par exemple, créez un fichier appelé "message.txt" et saisissez votre message à l'intérieur.
+
+Utiliser steghide pour cacher le message : Ouvrez votre terminal et utilisez la commande suivante :
+
+steghide embed -ef message.txt -cf image.jpg
+
+Remplacez "message.txt" par le nom de votre fichier texte contenant le message, et "image.jpg" par le nom de votre image de support.
+
+Définir un mot de passe (optionnel) : Vous pouvez ajouter une couche de sécurité en définissant un mot de passe lors de l'encodage. Pour cela, ajoutez l'option -p suivi de votre mot de passe.
+
+Sauvegarder l'image résultante : La commande précédente créera une nouvelle image avec le message caché. Sauvegardez cette nouvelle image dans un endroit sûr.
+
+Extraire le message : Pour extraire le message ultérieurement, utilisez la commande suivante 
+
+steghide extract -sf image.jpg
+
+Si vous avez défini un mot de passe, il vous sera demandé de le fournir.
+
